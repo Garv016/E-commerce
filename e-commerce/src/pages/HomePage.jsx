@@ -1,12 +1,36 @@
+import axios from 'axios'
 import './HomePage.css';
 import { Header } from '../component/Header';
-import {products} from '../../starting-code/data/products'
+// import {products} from '../../starting-code/data/products'
+import { useEffect, useState } from 'react';
 
 export function HomePage(){
+
+    // fetch('http://localhost:3000/api/products')
+    // .then( (response) => {
+    //     response.json().then( (data) => {
+    //       console.log(data);
+    //     } );  
+    // })
+    const [products,setProducts] = useState([])
+    const [cart,setCart] = useState([])
+    useEffect(() => {
+      axios.get('/api/products')
+      .then( (response) => {
+        setProducts(response.data)
+        } ); 
+      
+      axios.get('/api/cart-items')
+      .then( (response)=> {
+        setCart(response.data)
+      })
+    },[])
+     
+
     return(
     <>
     <title>E-Commerce Project</title>
-      <Header/>
+      <Header cart={cart} />
     <div className="home-page">
       <div className="products-grid">
         {products.map( (product) => {
