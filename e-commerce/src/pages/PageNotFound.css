@@ -1,0 +1,31 @@
+.page-error{
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+}
+
+.f404{
+    font-size: 15rem;
+    font-weight: 900;
+    margin: 0;
+
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    background-clip: text;
+    color: transparent;
+
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.page-error h3{
+    margin: 10px 0 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #555;
+}
+
