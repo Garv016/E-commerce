@@ -1,5 +1,5 @@
 import './header.css';
-import { Link  } from 'react-router';
+import { Link } from 'react-router';
 
 export function Header({cart}){
     let totalItems = 0;

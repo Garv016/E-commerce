@@ -1,7 +1,7 @@
 import axios from 'axios'
-import {HomePage} from './pages/HomePage'
-import { CheckOut } from './pages/CheckOut'
-import { OrderPage } from './pages/OrdersPage'
+import {HomePage} from './pages/home/HomePage'
+import { CheckOut } from './pages/checkout/CheckOut'
+import { OrdersPage } from './pages/OrdersPage'
 import { TrackingPage } from './pages/TrackingPage'
 import './App.css'
 import {Routes, Route} from 'react-router'
@@ -18,13 +18,13 @@ function App() {
         })
     },[])
   return (
-    <Routes>
+    <Routes>1
       {/* <Route path='/' element={<HomePage/>}/> both are same */}
       <Route index element={<HomePage cart = {cart}/>}/>
       <Route path='checkout' element={<CheckOut cart={cart} />}/>
-      <Route path='orders' element={<OrderPage/>}/>
-      <Route path='tracking' element={<TrackingPage/>}/>
-      <Route path='*' element={<PageNotFound/>}/>
+      <Route path='orders' element={<OrdersPage cart={cart} />}/>
+      <Route path="tracking/:orderId/:productId" element={<TrackingPage/>}/>
+      <Route path='*' element={<PageNotFound cart={cart}/>}/>
     </Routes>
   )
 }
